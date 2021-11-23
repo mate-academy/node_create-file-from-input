@@ -15,6 +15,7 @@ terminal.question('Input the filename\n', (name) => {
     fs.writeFile(fileName, content, (err, data) => {
       if (err) {
         console.log("Error: " + error);
+        terminal.close();
       }
       console.log("Success. Content " + content.slice(0, 5) + "... is written to the file " + fileName);
       terminal.close();
