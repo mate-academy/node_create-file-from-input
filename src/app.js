@@ -11,10 +11,10 @@ const inter = readline.createInterface({
 	output: process.stdout
 });
 
-inter.question('enter the file name ', (fileName) => {
-	fileName = fileName;
-	inter.question('enter the file content ', (fileContent) => {
-		fileContent = fileContent;
+inter.question('enter the file name ', (name) => {
+	fileName = name;
+	inter.question('enter the file content ', (content) => {
+		fileContent = content;
 		createFile();
     });
 });
