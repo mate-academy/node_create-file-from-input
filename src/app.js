@@ -16,18 +16,18 @@ inter.question('enter the file name ', (name) => {
 	inter.question('enter the file content ', (content) => {
 		fileContent = content;
 		createFile();
-    });
+	});
 });
 
 function createFile() {
 	fs.writeFile(`./src/${fileName}.txt`, fileContent, (err, res) => {
 		if (err) {
 			// eslint-disable-next-line no-console
-        	console.log('Error');
+			console.log('Error');
 		}
 
 		// eslint-disable-next-line no-console
-      	console.log('Success');
+		console.log('Success');
 	});
 
 	inter.close();
