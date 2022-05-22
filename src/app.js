@@ -13,12 +13,12 @@ terminal.question('Please enter a file name ', (name) => {
   terminal.question('Please enter a file description ', (description) => {
     fs.writeFile(`./${name}.txt`, description, (err) => {
       if (err) {
-        console.log(('Error'));
+        process.stdout.write('Error');
 
         return;
       };
 
-      console.log('Success');
+      process.stdout.write('Success');
     });
 
     terminal.close();
