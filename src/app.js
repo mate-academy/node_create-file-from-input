@@ -2,8 +2,6 @@
 import readline from 'readline';
 import * as fs from 'fs';
 
-// - When the user completes interaction, your app must create a file and output `Success` or `Error` depending on the result of creation.
-
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
