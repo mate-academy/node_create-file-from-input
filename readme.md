@@ -2,7 +2,7 @@
 
 **Read [the guideline](https://github.com/mate-academy/js_task-guideline/blob/master/README.md) before start**
 
-Write an app that will create a file with a given name and content.
+Implement an app that will create a file with a given name and content.
 
 1) When the app is launched, ask the user to enter the file name.
   > Make sure provided file name is not an empty string.
