@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable no-console */
 
 const readline = require('readline/promises').createInterface({
   input: process.stdin,
