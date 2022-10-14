@@ -12,19 +12,18 @@ function createFile() {
   terminal.question('Enter the name\n', (fileName) => {
     if (!fileName) {
       createFile();
-    } else {
-      terminal.question('\nEnter content\n', (content) => {
-        fs.writeFile(`./src/${fileName}.txt`, content, (error) => {
-          if (!error) {
-            terminal.write('Success');
-            terminal.close();
-          } else {
-            terminal.write('Error');
-            terminal.close();
-          }
-        });
+
+      return;
+    };
+
+    terminal.question('\nEnter content\n', (content) => {
+      fs.writeFile(`./src/${fileName}.txt`, content, (error) => {
+        const message = error ? 'Error' : 'Success';
+
+        terminal.write(message);
+        terminal.close();
       });
-    }
+    });
   });
 }
 
