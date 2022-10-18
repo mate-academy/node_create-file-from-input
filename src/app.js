@@ -12,6 +12,7 @@ const terminal = readline.createInterface({
 const processFile = () => {
   terminal.question('Please, enter the file name ', (fileName) => {
     if (!fileName.trim()) {
+      console.log("File name can't be empty");
       processFile();
     }
 
@@ -19,10 +20,11 @@ const processFile = () => {
       writeFile(fileName, content, 'utf8', (err) => {
         if (err) {
           console.log('Error');
+        } else {
+          console.log('Success');
         }
       });
 
-      console.log('Success');
       terminal.close();
     });
   });
