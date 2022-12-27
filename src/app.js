@@ -1,35 +1,44 @@
 'use strict';
-import readline from "readline";
-import fs from 'fs';
+
+const readline = require('readline');
+const fs = require('fs');
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-let fileName = ''
-let fileContent = ''
+let fileName = '';
+let fileContent = '';
+const reassignFileName = function(userInput) {
+  fileName = userInput;
+};
+const reassignFileContent = function(userInput) {
+  fileContent = userInput;
+};
 
 const askQuestion = (question, func) => {
   return new Promise((resolve, reject) => {
     rl.question(question, (userInput) => {
       if (userInput) {
-        console.log(userInput)
-        func(userInput)
+        // eslint-disable-next-line no-console
+        console.log(userInput);
+        func(userInput);
       }
-      resolve()
-    })
-  })
-}
+      resolve();
+    });
+  });
+};
 
-const createFileFromInput = async () => {
-  await askQuestion('File name:', (userInput) => fileName = userInput)
-  await askQuestion('File content:', (userInput) => fileContent = userInput)
-  rl.close()
+const createFileFromInput = async() => {
+  await askQuestion('File name:', reassignFileName);
+  await askQuestion('File content:', reassignFileContent);
+  rl.close();
 
   fs.writeFile(`./${fileName}`, fileContent, (error) => {
-    console.log(error ? 'Error' : 'Success')
+    // eslint-disable-next-line no-console
+    console.log(error ? 'Error' : 'Success');
   });
-}
+};
 
-createFileFromInput()
+createFileFromInput();
