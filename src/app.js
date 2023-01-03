@@ -24,21 +24,27 @@ const askQuestion = (question, func) => {
         // eslint-disable-next-line no-console
         console.log(userInput);
         func(userInput);
-      }
-      resolve();
+        resolve();
+      } else {
+        reject('Error: can\'t be empty');
+      };
     });
   });
 };
 
 const createFileFromInput = async() => {
-  await askQuestion('File name:', reassignFileName);
-  await askQuestion('File content:', reassignFileContent);
-  rl.close();
+  try {
+    await askQuestion('File name:', reassignFileName);
+    await askQuestion('File content:', reassignFileContent);
+    rl.close();
 
-  fs.writeFile(`./${fileName}`, fileContent, (error) => {
-    // eslint-disable-next-line no-console
-    console.log(error ? 'Error' : 'Success');
-  });
+    fs.writeFile(`./${fileName}`, fileContent, (error) => {
+      // eslint-disable-next-line no-console
+      console.log(error ? 'Error' : 'Success');
+    });
+  } catch (error) {
+    console.log(error);
+  };
 };
 
 createFileFromInput();
