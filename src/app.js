@@ -26,7 +26,7 @@ const askQuestion = (question, func) => {
         func(userInput);
         resolve();
       } else {
-        reject('Error: can\'t be empty');
+        reject(new Error('Error: can\'t be empty'));
       };
     });
   });
@@ -43,6 +43,7 @@ const createFileFromInput = async() => {
       console.log(error ? 'Error' : 'Success');
     });
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   };
 };
