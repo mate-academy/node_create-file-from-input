@@ -10,7 +10,6 @@ const terminal = readline.createInterface({
 });
 
 function createFileByName() {
-
   terminal.question('Plz enter file name... ', (name) => {
     if (!name.length) {
       console.log('enter a valid name');
