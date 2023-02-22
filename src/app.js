@@ -2,14 +2,16 @@
 'use strict';
 
 const readline = require('readline');
-const fs = require('fs');
+const { createFile } = require('./createFile');
 
 const terminal = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-terminal.setPrompt('Please provide a file name  ');
+terminal.setPrompt(
+  'Please provide a file name with extension (e.g. example.txt) '
+);
 terminal.prompt();
 
 terminal.on('line', (filename) => {
@@ -22,14 +24,8 @@ terminal.on('line', (filename) => {
     terminal.prompt();
 
     terminal.on('line', (content) => {
-      fs.writeFile(filename, content, (error) => {
-        if (error) {
-          console.log('Error');
-        } else {
-          console.log('Success');
-        }
-        terminal.close();
-      });
+      createFile(filename, content);
+      terminal.close();
     });
   }
 });
