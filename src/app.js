@@ -1,5 +1,4 @@
-'use strict';
-
+/* eslint-disable no-console */
 import fs from 'fs';
 import readLine from 'readline';
 
