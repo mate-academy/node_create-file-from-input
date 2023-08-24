@@ -2,6 +2,7 @@
   "name": "node_create-file-from-input",
   "version": "1.0.0",
   "description": "Create a file from input",
+  "type": "module",
   "main": "src/app.js",
   "scripts": {
     "init": "mate-scripts init",
