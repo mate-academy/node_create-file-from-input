@@ -20,15 +20,15 @@ function controller(flag, value) {
 
 function getFileData(value) {
   if (value === undefined || value.length === 0) {
-    terminal.question("Please enter name of new file: \n", (value) =>
-      controller("filename", value)
+    terminal.question("Please enter name of new file: \n", (data) =>
+      controller("filename", data)
     );
   }
 
   userFilename = value;
 
-  terminal.question("Please enter content of the file: \n", (value) =>
-    controller("content", value)
+  terminal.question("Please enter content of the file: \n", (data) =>
+    controller("content", data)
   );
 }
 
