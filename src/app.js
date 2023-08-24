@@ -1,7 +1,7 @@
 "use strict";
 
-import readline from "readline";
-import fs from "fs/promises";
+const readline = require("readline");
+const fs = require("fs/promises");
 
 const terminal = readline.createInterface({
   input: process.stdin,
